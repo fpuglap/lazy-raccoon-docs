@@ -1,33 +1,46 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API Reference"
+description: "REST API for managing configs programmatically."
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+The Lazy Raccoon API lets you manage your configs, teams, and versions programmatically. The CLI uses this same API under the hood.
 
-## Welcome
+## Base URL
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+```
+https://lazyraccoon.dev/api
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All endpoints require authentication via an API key in the `Authorization` header:
+
+```bash
+Authorization: Bearer lr_your_api_key_here
+```
+
+You can generate an API key by running `lazy login` or from the dashboard.
+
+## Response format
+
+All responses are JSON. Successful responses return the requested data directly. Error responses follow this format:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "error": "Description of what went wrong"
+}
 ```
+
+## Status codes
+
+| Code | Description |
+|---|---|
+| `200` | Success |
+| `201` | Created |
+| `204` | Deleted (no content) |
+| `400` | Bad request (invalid input) |
+| `401` | Unauthorized (missing or invalid API key) |
+| `403` | Forbidden (insufficient permissions or plan limit) |
+| `404` | Not found |
+| `413` | Payload too large (max 512 KB) |
+| `500` | Internal server error |

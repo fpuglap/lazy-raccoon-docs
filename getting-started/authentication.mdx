@@ -1,0 +1,55 @@
+---
+title: "Authentication"
+description: "How the CLI authenticates with your Lazy Raccoon account."
+---
+
+## Login
+
+```bash
+lazy login
+```
+
+This opens your default browser to `lazyraccoon.dev` where you sign in with your account (email/password or Google). Once authenticated, the browser redirects back and the CLI receives an API key automatically.
+
+Your credentials are saved locally at `~/.lazy-raccoon/credentials.json`.
+
+## Logout
+
+```bash
+lazy logout
+```
+
+Removes your stored credentials. You'll need to run `lazy login` again to use the CLI.
+
+## Check your session
+
+```bash
+lazy whoami
+```
+
+Returns the email of the currently authenticated user.
+
+## How it works
+
+<Steps>
+  <Step title="CLI starts a local server">
+    When you run `lazy login`, the CLI starts a temporary HTTP server on `localhost:9876`.
+  </Step>
+  <Step title="Browser authentication">
+    Your browser opens to `lazyraccoon.dev/cli-auth`. You sign in with your account.
+  </Step>
+  <Step title="API key generated">
+    After authentication, the server generates a unique API key for your device.
+  </Step>
+  <Step title="Credentials saved">
+    The API key is sent back to the CLI via the local server and saved to `~/.lazy-raccoon/credentials.json`.
+  </Step>
+</Steps>
+
+## Device management
+
+Each `lazy login` creates a new API key tied to your device name. You can view and revoke devices from the [Settings](https://lazyraccoon.dev/settings) page in the dashboard.
+
+<Note>
+  Only one API key is active per device. Running `lazy login` again replaces the previous key.
+</Note>

@@ -1,0 +1,40 @@
+---
+title: "List Configs"
+description: "GET /api/configs"
+---
+
+## Request
+
+```bash
+GET /api/configs
+```
+
+Returns all personal configs for the authenticated user.
+
+### Query parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `teamId` | `string` | Optional. List team configs instead of personal. |
+
+### Example
+
+```bash
+curl https://lazyraccoon.dev/api/configs \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "default",
+    "tool": "claude",
+    "version": 3,
+    "hash": "abc123...",
+    "updatedAt": "2026-03-13T12:00:00.000Z"
+  }
+]
+```

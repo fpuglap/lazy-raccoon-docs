@@ -1,0 +1,43 @@
+---
+title: "Get Version"
+description: "GET /api/configs/:id/versions/:versionId"
+---
+
+<Note>
+  Requires **Pro** or **Team** plan.
+</Note>
+
+## Request
+
+```bash
+GET /api/configs/:id/versions/:versionId
+```
+
+Returns a specific version of a config.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `id` | `string` | Config UUID |
+| `versionId` | `string` | Version UUID |
+
+### Example
+
+```bash
+curl https://lazyraccoon.dev/api/configs/config-uuid/versions/version-uuid \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+{
+  "id": "version-uuid",
+  "version": 2,
+  "hash": "def456...",
+  "data": { "CLAUDE.md": "Previous instructions" },
+  "createdAt": "2026-03-12T12:00:00.000Z",
+  "isCurrent": false
+}
+```

@@ -1,0 +1,32 @@
+---
+title: "Team Configs"
+description: "How shared team configurations work."
+---
+
+Team configs work the same as personal configs, but they're shared across all team members.
+
+## Pushing to a team
+
+```bash
+lazy push --team my-team
+lazy push --team my-team --tool cursor
+```
+
+Only **owners** and **admins** can push to team configs.
+
+## Pulling from a team
+
+```bash
+lazy pull --team my-team
+lazy pull --team my-team --tool cursor
+```
+
+Any team member can pull team configs.
+
+## Version history
+
+Team configs on the **Team plan** keep up to **100 versions** per config. You can view the version history and rollback from the dashboard.
+
+## Deleting team configs
+
+Only **owners** and **admins** can delete team configs, from the dashboard or via the API.

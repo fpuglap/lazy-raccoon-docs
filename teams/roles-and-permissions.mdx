@@ -1,0 +1,41 @@
+---
+title: "Roles & Permissions"
+description: "Team roles and what each one can do."
+---
+
+Every team member has one of three roles: **owner**, **admin**, or **member**.
+
+## Permissions table
+
+| Action | Owner | Admin | Member |
+|---|---|---|---|
+| View team members | Yes | Yes | Yes |
+| View team configs | Yes | Yes | Yes |
+| Push to team configs | Yes | Yes | Yes |
+| Pull from team configs | Yes | Yes | Yes |
+| Invite members | Yes | Yes | No |
+| Remove members | Yes | Yes* | No |
+| Delete team configs | Yes | Yes | No |
+| Change member roles | Yes | No | No |
+| Rename team | Yes | Yes | No |
+| Delete team | Yes | No | No |
+
+<Note>
+  *Admins can remove members but cannot remove other admins or owners.
+</Note>
+
+## Role details
+
+### Owner
+
+Full control over the team. Can manage roles, delete the team, and perform all actions. An owner **cannot leave** the team — ownership must be transferred first.
+
+A team can have multiple owners.
+
+### Admin
+
+Can manage day-to-day team operations: invite members, manage configs, and remove regular members. Cannot delete the team or change roles.
+
+### Member
+
+Can view the team, push and pull configs. Cannot invite others or manage the team.

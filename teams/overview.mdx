@@ -1,0 +1,41 @@
+---
+title: "Teams"
+description: "Share configs across your team."
+---
+
+Teams let you share AI tool configurations with your colleagues. Push a config once, and every team member can pull it.
+
+<Note>
+  Teams require a **Team plan**. See [Plans](/plans) for details.
+</Note>
+
+## How it works
+
+1. **Create a team** from the CLI or the dashboard
+2. **Invite members** by email
+3. **Push** a config to the team workspace
+4. **Every member** can pull the shared config
+
+## CLI commands
+
+| Command | Description |
+|---|---|
+| `lazy teams list` | List your teams |
+| `lazy teams create <name>` | Create a new team |
+| `lazy teams info <slug>` | View team details and members |
+| `lazy teams invite <slug> <email> [role]` | Invite a member |
+| `lazy teams leave <slug>` | Leave a team |
+| `lazy teams invitations` | View pending invitations |
+| `lazy teams accept <id>` | Accept an invitation |
+
+## Push and pull with teams
+
+Use the `--team` flag (or `-T`) to push/pull team configs:
+
+```bash
+# Push your Claude config to the team
+lazy push --team my-team
+
+# Pull the team's Cursor config
+lazy pull --team my-team --tool cursor
+```

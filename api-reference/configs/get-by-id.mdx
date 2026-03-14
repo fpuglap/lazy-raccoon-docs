@@ -1,0 +1,45 @@
+---
+title: "Get Config by ID"
+description: "GET /api/configs/:id"
+---
+
+## Request
+
+```bash
+GET /api/configs/:id
+```
+
+Returns a specific config by its ID, including decrypted data.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `id` | `string` | Config UUID |
+
+### Example
+
+```bash
+curl https://lazyraccoon.dev/api/configs/550e8400-e29b-41d4-a716-446655440000 \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "userId": "user-uuid",
+  "teamId": null,
+  "name": "default",
+  "tool": "claude",
+  "version": 3,
+  "hash": "abc123...",
+  "currentVersionId": "version-uuid",
+  "data": { "CLAUDE.md": "My instructions" },
+  "createdAt": "2026-03-01T12:00:00.000Z",
+  "updatedAt": "2026-03-13T12:00:00.000Z"
+}
+```
+
+Returns `404` if the config doesn't exist or doesn't belong to you. For team configs, requires team membership.

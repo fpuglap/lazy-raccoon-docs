@@ -1,0 +1,22 @@
+---
+title: "Gemini CLI"
+description: "What gets synced for Gemini CLI."
+---
+
+**Tool ID:** `gemini`
+**Config directory:** `~/.gemini/`
+
+## Synced files
+
+| File / Directory | Type | Description |
+|---|---|---|
+| `GEMINI.md` | Text | Custom instructions for Gemini |
+| `settings.json` | JSON | Gemini CLI settings |
+| `commands/` | TOML / Markdown | Custom commands |
+
+## Example
+
+```bash
+lazy push --tool gemini
+lazy pull --tool gemini
+```

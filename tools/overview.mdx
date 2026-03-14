@@ -1,0 +1,32 @@
+---
+title: "Supported Tools"
+description: "AI coding tools supported by Lazy Raccoon."
+---
+
+Lazy Raccoon supports syncing configurations for the following AI coding tools:
+
+| Tool | ID | Config Directory |
+|---|---|---|
+| [Claude Code](/tools/claude) | `claude` | `~/.claude/` |
+| [Cursor](/tools/cursor) | `cursor` | `~/.cursor/` |
+| [GitHub Copilot](/tools/copilot) | `copilot` | `~/.copilot/` |
+| [Gemini CLI](/tools/gemini) | `gemini` | `~/.gemini/` |
+| [Windsurf](/tools/windsurf) | `windsurf` | `~/.codeium/windsurf/` |
+| [Cline](/tools/cline) | `cline` | `~/.cline/` |
+
+## Using a specific tool
+
+By default, `lazy push` and `lazy pull` sync **Claude Code**. To sync a different tool, use the `--tool` flag:
+
+```bash
+lazy push --tool cursor
+lazy pull --tool gemini
+```
+
+## What gets synced
+
+Each tool has different config files that are synced. Click on a tool above to see the full list of files.
+
+<Warning>
+  Sensitive files like `.env`, API keys, tokens, credentials, caches, and logs are **never** synced.
+</Warning>

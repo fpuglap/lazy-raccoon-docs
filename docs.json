@@ -1,68 +1,102 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Lazy Raccoon",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#5B21B6"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started/installation",
+              "getting-started/quickstart",
+              "getting-started/authentication"
             ]
           },
           {
-            "group": "Customization",
+            "group": "CLI Commands",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "cli/push",
+              "cli/pull",
+              "cli/status",
+              "cli/whoami"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Supported Tools",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "tools/overview",
+              "tools/claude",
+              "tools/cursor",
+              "tools/copilot",
+              "tools/gemini",
+              "tools/windsurf",
+              "tools/cline"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Teams",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "teams/overview",
+              "teams/creating-a-team",
+              "teams/invitations",
+              "teams/roles-and-permissions",
+              "teams/team-configs"
+            ]
+          },
+          {
+            "group": "Plans & Billing",
+            "pages": [
+              "plans"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Overview",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/authentication"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Configs",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/configs/list",
+              "api-reference/configs/push",
+              "api-reference/configs/get-latest",
+              "api-reference/configs/get-by-id",
+              "api-reference/configs/delete"
+            ]
+          },
+          {
+            "group": "Versions",
+            "pages": [
+              "api-reference/versions/list",
+              "api-reference/versions/get",
+              "api-reference/versions/rollback"
+            ]
+          },
+          {
+            "group": "Teams",
+            "pages": [
+              "api-reference/teams/list",
+              "api-reference/teams/create",
+              "api-reference/teams/get",
+              "api-reference/teams/update",
+              "api-reference/teams/delete"
             ]
           }
         ]
@@ -71,14 +105,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Website",
+          "href": "https://lazyraccoon.dev",
+          "icon": "globe"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "GitHub",
+          "href": "https://github.com/fpuglap/lazy-raccoon-cli",
+          "icon": "github"
         }
       ]
     }
@@ -90,33 +124,20 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Dashboard",
+        "href": "https://lazyraccoon.dev/dashboard"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get Started",
+      "href": "https://lazyraccoon.dev/sign-up"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/fpuglap/lazy-raccoon-cli",
+      "website": "https://lazyraccoon.dev"
     }
   }
 }

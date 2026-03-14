@@ -1,0 +1,48 @@
+---
+title: "Invitations"
+description: "Invite members to your team."
+---
+
+## Inviting members
+
+Owners and admins can invite new members by email:
+
+```bash
+lazy teams invite my-team user@example.com
+```
+
+By default, invited users join as **member**. You can specify a different role:
+
+```bash
+lazy teams invite my-team user@example.com admin
+```
+
+The invited user receives an email with a link to accept the invitation.
+
+## Invitation details
+
+- Invitations expire after **7 days**
+- Invitations can be resent (24-hour cooldown between resends)
+- If the user doesn't have an account, they'll be prompted to create one
+
+## Viewing invitations
+
+See your pending invitations:
+
+```bash
+lazy teams invitations
+```
+
+## Accepting an invitation
+
+From the CLI:
+
+```bash
+lazy teams accept <invitation-id>
+```
+
+Or click the link in the email to accept from the browser.
+
+## Managing invitations (dashboard)
+
+Owners and admins can view, resend, and cancel pending invitations from the team page in the [dashboard](https://lazyraccoon.dev/dashboard/teams).

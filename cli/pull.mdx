@@ -1,0 +1,80 @@
+---
+title: "lazy pull"
+description: "Download your cloud config to the local machine."
+---
+
+## Usage
+
+```bash
+lazy pull [options]
+```
+
+Downloads your config from the cloud, shows a diff preview, and applies it locally after confirmation.
+
+## Options
+
+| Flag | Description | Default |
+|---|---|---|
+| `-t, --tool <id>` | AI tool to sync | `claude` |
+| `-p, --profile <name>` | Profile name (Claude only) | — |
+| `-f, --force` | Skip merge, full overwrite | `false` |
+| `-d, --dir <path>` | Override target directory | — |
+| `-T, --team <slug>` | Pull from a team workspace | — |
+
+## Examples
+
+Pull Claude Code config (default):
+
+```bash
+lazy pull
+```
+
+Pull Cursor config:
+
+```bash
+lazy pull --tool cursor
+```
+
+Pull from a team:
+
+```bash
+lazy pull --team my-team
+```
+
+Pull to a custom directory:
+
+```bash
+lazy pull --dir ~/my-configs
+```
+
+Force pull (overwrite local with cloud):
+
+```bash
+lazy pull --force
+```
+
+## Behavior
+
+### Smart merge (default)
+
+When you have local changes, `lazy pull` performs a smart merge:
+
+- **Cloud wins** on conflicts — remote changes take priority
+- **Local-only fields** are preserved — things that exist locally but not in the cloud stay untouched
+- A diff preview is shown before applying
+
+### Force mode
+
+With `--force`, your local config becomes an exact copy of the cloud version. No merge, no preserved fields.
+
+### Automatic backup
+
+Before writing any changes, the CLI creates a backup of your current config. For example:
+
+```
+~/.claude/CLAUDE.md → ~/.claude/CLAUDE.md.backup.1710000000000
+```
+
+### First pull
+
+If no config exists in the cloud, you'll get an error asking you to `lazy push` first.

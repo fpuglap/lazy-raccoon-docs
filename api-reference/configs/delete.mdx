@@ -1,0 +1,34 @@
+---
+title: "Delete Config"
+description: "DELETE /api/configs/:id"
+---
+
+## Request
+
+```bash
+DELETE /api/configs/:id
+```
+
+Deletes a config and all its versions.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `id` | `string` | Config UUID |
+
+### Example
+
+```bash
+curl -X DELETE https://lazyraccoon.dev/api/configs/550e8400-e29b-41d4-a716-446655440000 \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+Returns `204 No Content` on success.
+
+### Authorization
+
+- **Personal configs**: only the owner can delete
+- **Team configs**: requires **owner** or **admin** role on the team

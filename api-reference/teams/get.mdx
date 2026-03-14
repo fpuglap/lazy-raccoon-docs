@@ -1,0 +1,55 @@
+---
+title: "Get Team"
+description: "GET /api/teams/:slug"
+---
+
+## Request
+
+```bash
+GET /api/teams/:slug
+```
+
+Returns team details and members. Requires team membership.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `slug` | `string` | Team slug |
+
+### Example
+
+```bash
+curl https://lazyraccoon.dev/api/teams/my-team \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+{
+  "id": "team-uuid",
+  "name": "My Team",
+  "slug": "my-team",
+  "createdAt": "2026-03-01T12:00:00.000Z",
+  "userRole": "owner",
+  "members": [
+    {
+      "id": "member-uuid",
+      "userId": "user-uuid",
+      "email": "owner@example.com",
+      "username": "owner",
+      "role": "owner",
+      "joinedAt": "2026-03-01T12:00:00.000Z"
+    },
+    {
+      "id": "member-uuid-2",
+      "userId": "user-uuid-2",
+      "email": "dev@example.com",
+      "username": "dev",
+      "role": "member",
+      "joinedAt": "2026-03-05T12:00:00.000Z"
+    }
+  ]
+}
+```

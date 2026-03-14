@@ -1,0 +1,81 @@
+---
+title: "lazy push"
+description: "Upload your local config to the cloud."
+---
+
+## Usage
+
+```bash
+lazy push [options]
+```
+
+Reads your local AI tool config, shows a diff preview, and uploads it to the cloud after confirmation.
+
+## Options
+
+| Flag | Description | Default |
+|---|---|---|
+| `-t, --tool <id>` | AI tool to sync | `claude` |
+| `-p, --profile <name>` | Profile name (Claude only) | — |
+| `-f, --force` | Skip merge, full overwrite | `false` |
+| `-T, --team <slug>` | Push to a team workspace | — |
+
+## Examples
+
+Push Claude Code config (default):
+
+```bash
+lazy push
+```
+
+Push Cursor config:
+
+```bash
+lazy push --tool cursor
+```
+
+Push to a team:
+
+```bash
+lazy push --team my-team
+```
+
+Push a Claude profile:
+
+```bash
+lazy push --profile work
+```
+
+Force push (overwrite cloud with local):
+
+```bash
+lazy push --force
+```
+
+## Behavior
+
+### Smart merge (default)
+
+When a config already exists in the cloud, `lazy push` performs a smart merge:
+
+- **Local wins** on conflicts — your local changes take priority
+- **Cloud-only fields** are preserved — things that exist in the cloud but not locally stay untouched
+- A diff preview is shown before applying
+
+### Force mode
+
+With `--force`, the cloud config becomes an exact copy of your local files. No merge, no preserved fields.
+
+### No changes
+
+If your local config is identical to the cloud version (same hash), the push is skipped and no new version is created.
+
+## Limits
+
+- Maximum payload size: **512 KB** per config
+- Config name: alphanumeric, dashes, and underscores only (max 100 characters)
+- Valid tools: `claude`, `cursor`, `copilot`, `gemini`, `windsurf`, `cline`
+
+<Note>
+  New configs count against your plan's config limit. See [Plans](/plans) for details.
+</Note>

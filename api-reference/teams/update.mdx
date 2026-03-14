@@ -1,0 +1,51 @@
+---
+title: "Update Team"
+description: "PATCH /api/teams/:slug"
+---
+
+## Request
+
+```bash
+PATCH /api/teams/:slug
+```
+
+Rename a team or change its slug. Requires **owner** or **admin** role.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `slug` | `string` | Current team slug |
+
+### Body
+
+```json
+{
+  "name": "New Team Name",
+  "slug": "new-slug"
+}
+```
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `name` | `string` | No | New team name. Max 50 characters. |
+| `slug` | `string` | No | New team slug. Must be globally unique. |
+
+### Example
+
+```bash
+curl -X PATCH https://lazyraccoon.dev/api/teams/my-team \
+  -H "Authorization: Bearer lr_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Renamed Team"}'
+```
+
+## Response
+
+```json
+{
+  "id": "team-uuid",
+  "name": "Renamed Team",
+  "slug": "my-team"
+}
+```

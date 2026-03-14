@@ -1,0 +1,23 @@
+---
+title: "GitHub Copilot"
+description: "What gets synced for GitHub Copilot."
+---
+
+**Tool ID:** `copilot`
+**Config directory:** `~/.copilot/`
+
+## Synced files
+
+| File / Directory | Type | Description |
+|---|---|---|
+| `copilot-instructions.md` | Text | Custom instructions for Copilot |
+| `config.json` | JSON | Copilot configuration |
+| `mcp-config.json` | JSON | MCP server configuration |
+| `agents/` | Markdown | Custom agent definitions |
+
+## Example
+
+```bash
+lazy push --tool copilot
+lazy pull --tool copilot
+```

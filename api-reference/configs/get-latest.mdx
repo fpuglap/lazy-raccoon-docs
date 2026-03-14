@@ -1,0 +1,43 @@
+---
+title: "Get Latest Config"
+description: "GET /api/configs/latest"
+---
+
+## Request
+
+```bash
+GET /api/configs/latest?name=default&tool=claude
+```
+
+Returns the latest version of a config by name and tool.
+
+### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `name` | `string` | Yes | Config name |
+| `tool` | `string` | Yes | Tool ID |
+| `teamId` | `string` | No | Get team config instead |
+
+### Example
+
+```bash
+curl "https://lazyraccoon.dev/api/configs/latest?name=default&tool=claude" \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "default",
+  "tool": "claude",
+  "version": 3,
+  "hash": "abc123...",
+  "data": { "CLAUDE.md": "My instructions", "settings.json": {} },
+  "updatedAt": "2026-03-13T12:00:00.000Z"
+}
+```
+
+Returns `404` if no config exists with that name and tool combination.

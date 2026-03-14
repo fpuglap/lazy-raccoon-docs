@@ -1,0 +1,33 @@
+---
+title: "Delete Team"
+description: "DELETE /api/teams/:slug"
+---
+
+## Request
+
+```bash
+DELETE /api/teams/:slug
+```
+
+Soft-deletes a team. Requires **owner** role.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `slug` | `string` | Team slug |
+
+### Example
+
+```bash
+curl -X DELETE https://lazyraccoon.dev/api/teams/my-team \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+Returns `204 No Content` on success.
+
+<Warning>
+  This action soft-deletes the team. The team and its data are permanently removed after 30 days.
+</Warning>

@@ -1,0 +1,49 @@
+---
+title: "Claude Code"
+description: "What gets synced for Claude Code."
+---
+
+**Tool ID:** `claude`
+**Config directory:** `~/.claude/`
+
+## Synced files
+
+| File / Directory | Type | Description |
+|---|---|---|
+| `CLAUDE.md` | Text | Project instructions and context |
+| `settings.json` | JSON | Claude Code settings |
+| `.mcp.json` | JSON | MCP server configuration |
+| `commands/` | Markdown | Custom slash commands |
+| `agents/` | Markdown | Custom agent definitions |
+| `skills/` | Markdown | Custom skills |
+| `rules/` | Markdown | Custom rules |
+
+## Profiles
+
+Claude Code supports profiles. Each profile has its own config directory:
+
+```
+~/.claude/          → default profile
+~/.claude-work/     → "work" profile
+~/.claude-personal/ → "personal" profile
+```
+
+To push or pull a specific profile:
+
+```bash
+lazy push --profile work
+lazy pull --profile work
+```
+
+## Example
+
+```bash
+# Push your Claude Code config
+lazy push
+
+# Push a specific profile
+lazy push --profile adoreal
+
+# Pull on another machine
+lazy pull
+```

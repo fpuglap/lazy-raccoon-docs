@@ -1,0 +1,33 @@
+---
+title: "List Teams"
+description: "GET /api/teams"
+---
+
+## Request
+
+```bash
+GET /api/teams
+```
+
+Returns all teams the authenticated user belongs to.
+
+### Example
+
+```bash
+curl https://lazyraccoon.dev/api/teams \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+[
+  {
+    "id": "team-uuid",
+    "name": "My Team",
+    "slug": "my-team",
+    "role": "owner",
+    "createdAt": "2026-03-01T12:00:00.000Z"
+  }
+]
+```

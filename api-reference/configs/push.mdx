@@ -1,0 +1,77 @@
+---
+title: "Push Config"
+description: "POST /api/configs"
+---
+
+## Request
+
+```bash
+POST /api/configs
+```
+
+Create a new config or push a new version to an existing one.
+
+### Body
+
+```json
+{
+  "name": "default",
+  "tool": "claude",
+  "data": { "your": "config data" },
+  "teamId": "optional-team-id"
+}
+```
+
+| Field | Type | Required | Default | Description |
+|---|---|---|---|---|
+| `name` | `string` | No | `"default"` | Config name. Max 100 chars, alphanumeric + dashes/underscores. |
+| `tool` | `string` | No | `"claude"` | Tool ID. Must be one of: `claude`, `cursor`, `copilot`, `gemini`, `windsurf`, `cline`. |
+| `data` | `object` or `string` | Yes | — | Config data to store. Max 512 KB. |
+| `teamId` | `string` | No | — | Push to a team. Must be a valid UUID. Requires owner/admin role. |
+
+### Example
+
+```bash
+curl -X POST https://lazyraccoon.dev/api/configs \
+  -H "Authorization: Bearer lr_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"tool": "claude", "data": {"CLAUDE.md": "My instructions"}}'
+```
+
+## Response
+
+New config (201):
+
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "default",
+  "tool": "claude",
+  "version": 1,
+  "updatedAt": "2026-03-13T12:00:00.000Z"
+}
+```
+
+Updated config (200):
+
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "default",
+  "tool": "claude",
+  "version": 4,
+  "updatedAt": "2026-03-13T12:00:00.000Z"
+}
+```
+
+No changes detected (200):
+
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "default",
+  "tool": "claude",
+  "message": "No changes detected",
+  "noChange": true
+}
+```

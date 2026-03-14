@@ -1,0 +1,60 @@
+---
+title: "Rollback"
+description: "POST /api/configs/:id/rollback"
+---
+
+<Note>
+  Requires **Pro** or **Team** plan.
+</Note>
+
+## Request
+
+```bash
+POST /api/configs/:id/rollback
+```
+
+Rolls back a config to a previous version. This creates a **new version** with the target version's data (similar to `git revert`).
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `id` | `string` | Config UUID |
+
+### Body
+
+```json
+{
+  "versionId": "version-uuid-to-rollback-to"
+}
+```
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `versionId` | `string` | Yes | UUID of the version to rollback to |
+
+### Example
+
+```bash
+curl -X POST https://lazyraccoon.dev/api/configs/config-uuid/rollback \
+  -H "Authorization: Bearer lr_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"versionId": "version-uuid"}'
+```
+
+## Response
+
+```json
+{
+  "id": "new-version-uuid",
+  "version": 4,
+  "hash": "def456...",
+  "createdAt": "2026-03-13T12:00:00.000Z",
+  "isCurrent": true
+}
+```
+
+### Authorization
+
+- **Personal configs**: only the owner can rollback
+- **Team configs**: requires **owner** or **admin** role

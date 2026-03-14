@@ -1,0 +1,28 @@
+---
+title: "Creating a Team"
+description: "Create a team workspace to share configs."
+---
+
+## From the CLI
+
+```bash
+lazy teams create "My Team"
+```
+
+This creates a team and makes you the **owner**. A slug is generated automatically from the name (e.g., `my-team`).
+
+## From the dashboard
+
+1. Go to [Dashboard > Teams](https://lazyraccoon.dev/dashboard/teams)
+2. Click **Create Team**
+3. Enter a team name
+
+## Team slug
+
+The slug is a URL-friendly identifier generated from the team name. It must be unique across all teams. You use it in CLI commands:
+
+```bash
+lazy push --team my-team
+```
+
+Owners and admins can rename the team or change the slug from the dashboard.

@@ -1,0 +1,53 @@
+---
+title: "Authentication"
+description: "How to authenticate with the API."
+---
+
+## API Key
+
+Include your API key in the `Authorization` header of every request:
+
+```bash
+curl https://lazyraccoon.dev/api/me \
+  -H "Authorization: Bearer lr_your_api_key_here"
+```
+
+## Getting an API key
+
+Run the CLI login command to generate an API key:
+
+```bash
+lazy login
+```
+
+The key is saved at `~/.lazy-raccoon/credentials.json` and can be used for direct API calls.
+
+## Key format
+
+API keys follow the format `lr_` followed by 64 hexadecimal characters:
+
+```
+lr_a1b2c3d4e5f6...
+```
+
+## Security
+
+- API keys are **hashed** (SHA-256) before storage — the plain key is never saved on our servers
+- Only **one active key** per device — logging in again replaces the previous key
+- You can **revoke keys** from the [Settings](https://lazyraccoon.dev/settings) page
+
+## Verify your key
+
+```bash
+curl https://lazyraccoon.dev/api/me \
+  -H "Authorization: Bearer lr_your_api_key_here"
+```
+
+Response:
+
+```json
+{
+  "email": "user@example.com",
+  "username": "user"
+}
+```

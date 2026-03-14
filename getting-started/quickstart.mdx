@@ -1,0 +1,59 @@
+---
+title: "Quickstart"
+description: "Push your first config in under a minute."
+---
+
+## 1. Install
+
+```bash
+npm install -g lazy-raccoon
+```
+
+## 2. Log in
+
+```bash
+lazy login
+```
+
+Your browser opens to authenticate. Once you approve, the CLI is connected to your account.
+
+## 3. Push your config
+
+```bash
+lazy push
+```
+
+By default, this pushes your **Claude Code** config (`~/.claude/`). The CLI reads your local files, shows you a diff preview, and asks for confirmation before uploading.
+
+## 4. Pull on another machine
+
+On your other machine, install the CLI, log in, and pull:
+
+```bash
+lazy pull
+```
+
+Your config is downloaded and merged with any local changes. A backup is created automatically before writing.
+
+## Other tools
+
+Push a different tool's config:
+
+```bash
+lazy push --tool cursor
+lazy push --tool copilot
+lazy push --tool gemini
+```
+
+See [Supported Tools](/tools/overview) for the full list.
+
+## Teams
+
+Push to a team workspace:
+
+```bash
+lazy push --team my-team
+lazy pull --team my-team
+```
+
+See [Teams](/teams/overview) for setup instructions.

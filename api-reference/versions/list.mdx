@@ -1,0 +1,54 @@
+---
+title: "List Versions"
+description: "GET /api/configs/:id/versions"
+---
+
+<Note>
+  Requires **Pro** or **Team** plan.
+</Note>
+
+## Request
+
+```bash
+GET /api/configs/:id/versions
+```
+
+Returns all versions of a config, ordered by version number.
+
+### Path parameters
+
+| Parameter | Type | Description |
+|---|---|---|
+| `id` | `string` | Config UUID |
+
+### Example
+
+```bash
+curl https://lazyraccoon.dev/api/configs/550e8400-e29b-41d4-a716-446655440000/versions \
+  -H "Authorization: Bearer lr_your_key"
+```
+
+## Response
+
+```json
+[
+  {
+    "id": "version-uuid-1",
+    "version": 3,
+    "hash": "abc123...",
+    "data": { "CLAUDE.md": "Latest instructions" },
+    "createdAt": "2026-03-13T12:00:00.000Z",
+    "isCurrent": true
+  },
+  {
+    "id": "version-uuid-2",
+    "version": 2,
+    "hash": "def456...",
+    "data": { "CLAUDE.md": "Previous instructions" },
+    "createdAt": "2026-03-12T12:00:00.000Z",
+    "isCurrent": false
+  }
+]
+```
+
+Returns `403` if your plan doesn't include version history.

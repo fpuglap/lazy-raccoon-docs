@@ -1,0 +1,47 @@
+---
+title: "Create Team"
+description: "POST /api/teams"
+---
+
+<Note>
+  Requires **Team** plan.
+</Note>
+
+## Request
+
+```bash
+POST /api/teams
+```
+
+### Body
+
+```json
+{
+  "name": "My Team"
+}
+```
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `name` | `string` | Yes | Team name. Max 50 characters. |
+
+### Example
+
+```bash
+curl -X POST https://lazyraccoon.dev/api/teams \
+  -H "Authorization: Bearer lr_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "My Team"}'
+```
+
+## Response (201)
+
+```json
+{
+  "id": "team-uuid",
+  "name": "My Team",
+  "slug": "my-team"
+}
+```
+
+The slug is auto-generated from the name and must be globally unique. Returns `409` if the slug already exists.

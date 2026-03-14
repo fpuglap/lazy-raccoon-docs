@@ -1,97 +1,61 @@
 ---
 title: "Introduction"
-description: "Welcome to the new home for your documentation"
+description: "Sync your AI tool configs across machines. Push once, pull anywhere."
 ---
 
-## Setting up
+Lazy Raccoon is a CLI + cloud platform that keeps your AI coding tool configurations in sync across all your machines. Whether you use Claude Code, Cursor, Copilot, Gemini CLI, Windsurf, or Cline — your rules, settings, and MCP configs stay consistent everywhere.
 
-Get your documentation site up and running in minutes.
+## Why Lazy Raccoon?
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+Every AI coding tool stores its configuration in local files. When you switch machines, set up a new laptop, or collaborate with a team, those configs don't follow you. Lazy Raccoon solves this.
 
-## Make it yours
+- **Push** your local config to the cloud with one command
+- **Pull** it on any other machine
+- **Share** configs with your team using team workspaces
+- **Track** version history and rollback when needed
+- **Encrypted** — your configs are encrypted at rest
 
-Design a docs site that looks great and empowers your users.
+## How it works
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+<Steps>
+  <Step title="Install the CLI">
+    ```bash
+    npm install -g lazy-raccoon
+    ```
+  </Step>
+  <Step title="Log in">
+    ```bash
+    lazy login
+    ```
+    Opens your browser to authenticate. Once done, you're ready.
+  </Step>
+  <Step title="Push your config">
+    ```bash
+    lazy push
+    ```
+    Your Claude Code config is now saved to the cloud.
+  </Step>
+  <Step title="Pull on another machine">
+    ```bash
+    lazy pull
+    ```
+    Your config is downloaded and applied. Done.
+  </Step>
+</Steps>
 
-## Create beautiful pages
-
-Everything you need to create world-class documentation.
+## Quick links
 
 <Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
+  <Card title="Installation" icon="download" href="/getting-started/installation">
+    Install the CLI in 30 seconds.
   </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
+  <Card title="Quickstart" icon="rocket" href="/getting-started/quickstart">
+    Push your first config in under a minute.
   </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
+  <Card title="Supported Tools" icon="wrench" href="/tools/overview">
+    See what gets synced for each AI tool.
   </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
+  <Card title="Teams" icon="users" href="/teams/overview">
+    Share configs across your team.
   </Card>
 </Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
