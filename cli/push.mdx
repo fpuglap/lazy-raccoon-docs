@@ -17,6 +17,7 @@ Reads your local AI tool config, shows a diff preview, and uploads it to the clo
 |---|---|---|
 | `-t, --tool <id>` | AI tool to sync | `claude` |
 | `-p, --profile <name>` | Profile name (Claude only) | — |
+| `-m, --message <text>` | Version message (like a commit message) | — |
 | `-f, --force` | Skip merge, full overwrite | `false` |
 | `-T, --team <slug>` | Push to a team workspace | — |
 
@@ -46,6 +47,12 @@ Push a Claude profile:
 lazy push --profile work
 ```
 
+Push with a version message:
+
+```bash
+lazy push -m "Add MCP server for Slack"
+```
+
 Force push (overwrite cloud with local):
 
 ```bash
@@ -65,6 +72,16 @@ When a config already exists in the cloud, `lazy push` performs a smart merge:
 ### Force mode
 
 With `--force`, the cloud config becomes an exact copy of your local files. No merge, no preserved fields.
+
+### Version messages
+
+Each push includes a change summary that describes what changed. You can also add a custom message with `-m`:
+
+```bash
+lazy push -m "Updated rules for new coding standards"
+```
+
+If no message is provided, an auto-generated summary is created from the diff (e.g. "Modified CLAUDE.md, added .mcp.json").
 
 ### No changes
 
